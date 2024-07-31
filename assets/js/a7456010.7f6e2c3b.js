@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkxbt_gitlab_ai_plugin_docs_site=self.webpackChunkxbt_gitlab_ai_plugin_docs_site||[]).push([[235],{8552:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-content-pages","id":"default"}')}}]);

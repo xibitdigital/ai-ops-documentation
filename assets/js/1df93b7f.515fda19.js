@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkxbt_gitlab_ai_plugin_docs_site=self.webpackChunkxbt_gitlab_ai_plugin_docs_site||[]).push([[583],{6866:(t,e,i)=>{i.r(e),i.d(e,{default:()=>u});i(6540);var s=i(6347),_=i(4848);function u(){return(0,_.jsx)(s.rd,{to:"/home"})}}}]);

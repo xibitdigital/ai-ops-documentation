@@ -7,7 +7,7 @@ const config: Config = {
   tagline: 'GitOps AI for pipelines',
   favicon: 'img/favicon.ico',
 
-  url: 'https://xibitdigital.github.io/',
+  url: 'https://xibitdigital.github.io',
   baseUrl: '/ai-ops-documentation/',
 
   organizationName: 'xibitdigital',

@@ -46,5 +46,5 @@ import React from 'react';
 import { Redirect } from '@docusaurus/router';
 
 export default function Home() {
-  return <Redirect to="/home" />; // Assumes your file is at docs/home.md
+  return <Redirect to="intro" />; // Assumes your file is at docs/home.md
 }

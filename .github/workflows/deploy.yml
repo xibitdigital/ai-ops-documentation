@@ -1,34 +1,52 @@
-name: Deploy Docusaurus site to GitHub Pages
+# .github/workflows/deploy.yml
+
+name: GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Change this to your default branch if it's not 'main'
-
-permissions:
-  contents: write
+      - main
+    paths:
+      - '.github/workflows/deploy.yml'
+      - 'website/**'
+  pull_request:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    defaults:
+      run:
+        working-directory: website
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '14'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "YARN_CACHE_DIR=$(yarn cache dir)" >> "${GITHUB_OUTPUT}"
 
-      - name: Build site
-        run: npm run build
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.yarn-cache.outputs.YARN_CACHE_DIR }}
+          key: ${{ runner.os }}-website-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-website-
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build  # Adjust this if your build output is in a different directory
+          publish_dir: ./website/build

@@ -43,7 +43,7 @@ const config: Config = {
       disableSwitch: true,
       respectPrefersColorScheme: false,
     },
-    image: '',
+    image: 'img/logo.png',
     navbar: {
       title: 'XBT - AI OPS',
       logo: {

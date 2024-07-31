@@ -3,7 +3,10 @@ name: Deploy Docusaurus site to GitHub Pages
 on:
   push:
     branches:
-      - main  # Change this to your default branch if it’s not 'main'
+      - main  # Change this to your default branch if it's not 'main'
+
+permissions:
+  contents: write
 
 jobs:
   deploy:
@@ -16,16 +19,16 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.1'  # Use the Node.js version you need
+          node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build site
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        run: npm run deploy
-        env:
-          USE_SSH: true
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build  # Adjust this if your build output is in a different directory

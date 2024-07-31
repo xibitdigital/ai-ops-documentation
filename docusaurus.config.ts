@@ -2,16 +2,22 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+
+const organizationName = "xibitdigital";
+const projectName = "ai-ops-documentation";
+
+
 const config: Config = {
   title: 'Xibit Digital AI OPS',
   tagline: 'GitOps AI for pipelines',
   favicon: 'img/favicon.ico',
 
-  url: 'https://xibitdigital.github.io',
-  baseUrl: '/ai-ops-documentation/',
+  url: `https://${organizationName}.github.io`,
+  baseUrl: `/${projectName}/`,
 
-  organizationName: 'xibitdigital',
-  projectName: 'ai-ops-documentation',
+  organizationName, // Usually your GitHub org/user name.
+  projectName, // Usually your repo name.
+
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',

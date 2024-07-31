@@ -1,0 +1,38 @@
+.section {
+  margin-bottom: 1rem;
+}
+
+.section:first-of-type {
+  padding-top: 1rem;
+}
+
+.section:last-of-type {
+  margin-bottom: 2.4rem;
+}
+
+@media screen and (min-width: 30em) {
+  .section {
+    margin-bottom: 1rem;
+  }
+  .section:first-of-type {
+    padding-top: 2rem;
+  }
+  .section:last-of-type {
+    margin-bottom: 5.6rem;
+  }
+}
+
+@media screen and (min-width: 56.25em) {
+  .section {
+    margin-bottom: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 75em) {
+  .section:last-of-type {
+    margin-bottom: 8.5rem;
+  }
+}
+
+@media screen and (min-width: 100em) {
+}

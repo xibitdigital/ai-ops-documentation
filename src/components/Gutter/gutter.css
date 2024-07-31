@@ -1,0 +1,34 @@
+@media (min-width: 1200px) {
+  .gutter {
+    max-width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .gutter {
+    max-width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .gutter {
+    max-width: 100%;
+  }
+}
+@media (min-width: 576px) {
+  .gutter {
+    max-width: 100%;
+  }
+}
+
+.gutter {
+  position: relative;
+  margin: 0 auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  max-width: 69em;
+}
+
+.gutter--center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

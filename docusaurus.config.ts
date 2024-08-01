@@ -18,7 +18,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   url: customDomain ? `https://${customDomain}` : `https://${organizationName}.github.io`,
-  baseUrl: '/',  // Changed this to '/'
+  baseUrl: `/${projectName}/`,
 
   organizationName, // Usually your GitHub org/user name.
   projectName, // Usually your repo name.

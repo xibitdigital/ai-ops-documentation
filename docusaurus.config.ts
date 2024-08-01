@@ -5,20 +5,21 @@ import type * as Preset from '@docusaurus/preset-classic';
 const organizationName = "xibitdigital";
 const projectName = "ai-ops-documentation";
 // Determine if we're using the custom domain based on the CNAME file
-const fs = require('fs');
-const path = require('path');
-const cnamePath = path.join(__dirname, 'static', 'CNAME');
-const customDomain = fs.existsSync(cnamePath) 
-  ? fs.readFileSync(cnamePath, 'utf8').trim() 
-  : null;
+// const fs = require('fs');
+// const path = require('path');
+// const cnamePath = path.join(__dirname, 'static', 'CNAME');
+// const customDomain = fs.existsSync(cnamePath) 
+//   ? fs.readFileSync(cnamePath, 'utf8').trim() 
+//   : null;
+const customDomain = true
 
 const config: Config = {
   title: 'Xibit Digital AI OPS',
   tagline: 'GitOps AI for pipelines',
   favicon: 'img/favicon.ico',
 
-  url: customDomain ? `https://${customDomain}` : `https://${organizationName}.github.io`,
-  baseUrl: `/${projectName}/`,
+  url: customDomain ? `https://ai-ops.xibitdigital.com` : `https://${organizationName}.github.io`,
+  baseUrl: `/`,
 
   organizationName, // Usually your GitHub org/user name.
   projectName, // Usually your repo name.

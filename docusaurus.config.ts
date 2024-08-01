@@ -16,7 +16,7 @@ const customDomain = true
 const config: Config = {
   title: 'Xibit Digital AI OPS',
   tagline: 'GitOps AI for pipelines',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
 
   url: customDomain ? `https://ai-ops.xibitdigital.com` : `https://${organizationName}.github.io`,
   baseUrl: `/`,

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: AI OPS
+slug: /
 ---
 
 ### Introduction to GitOps AI

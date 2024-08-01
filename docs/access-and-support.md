@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-title: License
+title: Access and Support
 ---
 
 ### License

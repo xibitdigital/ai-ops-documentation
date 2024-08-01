@@ -1,10 +1,8 @@
 ---
 sidebar_position: 1
-title: AI OPS
+title: Intro
 slug: /
 ---
-
-### Introduction to GitOps AI
 
 GitOps AI is an innovative service crafted to revolutionize the software development lifecycle by automating the code review and analysis processes. By leveraging advanced artificial intelligence models, GitOps AI streamlines the identification of potential issues and suggests improvements, thereby enhancing code quality and accelerating the development process. The service seamlessly integrates with GitLab, a popular platform for version control and CI/CD (Continuous Integration and Continuous Deployment), enabling it to fetch commit changes in real-time.
 

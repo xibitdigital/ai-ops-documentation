@@ -12,7 +12,7 @@ Once integrated, GitOps AI offers two primary functionalities:
 
 2. **Code Analysis**: Beyond code review, GitOps AI can also be configured to analyze specific steps in the CI/CD pipeline. This analysis is crucial for identifying issues that may arise during the build, test, or deployment stages. For instance, it can detect potential failures in the deployment process, analyze their root causes, and suggest possible solutions. This proactive approach helps teams to address issues before they escalate, reducing downtime and maintaining smooth operations.
 
-GitOps AI is built to support multiple AI models, each bringing unique capabilities to the table. GPT (Generative Pre-trained Transformer) is known for its natural language understanding, making it excellent for providing context-aware feedback. Anthropic's models are focused on ethical and safe AI, ensuring that the recommendations are not only effective but also align with best practices. Llama, on the other hand, specializes in specific technical domains, offering expert insights into specialized areas of software development.
+GitOps AI is designed with flexibility in mind, enabling seamless integration and support for a variety of advanced AI models. Among these, it includes support for Anthropic, Llama, and OpenAI's ChatGPT. Each of these models brings unique capabilities and strengths to the table, allowing users to leverage the best-suited technology for their specific needs.
 
 ### Benefits of GitOps AI
 
@@ -24,7 +24,7 @@ GitOps AI is built to support multiple AI models, each bringing unique capabilit
 ### How GitOps AI Works
 
 1. **Integration with GitLab**: GitOps AI integrates with your GitLab projects, monitoring commits and pipeline activities.
-2. **Triggering Actions**: Based on predefined rules, such as new merge requests or specific pipeline events, GitOps AI automatically triggers either a code review or analysis.
+2. **Triggering Actions**: Based on predefined rules, such as new merge requests or specific pipeline events, GitOps AI triggers either a code review or analysis.
 3. **AI-Powered Analysis**: The service utilizes its suite of AI models to examine the code or pipeline, identifying potential issues and generating actionable feedback.
 4. **Feedback Delivery**: The insights and recommendations are then provided directly within GitLab, either as comments in the merge request or notes in the pipeline, making it easy for developers to review and act upon them.
 

@@ -73,7 +73,7 @@ This job automates the code review process using GitOps AI and can add review no
 review:
     extends: .ai_merge_request_review
     variables:
-        CREATE_NOTE: 'true'
+        CREATE_NOTE: true
 ```
 
 ### Full GitLab Sample Template for Integration
@@ -91,20 +91,22 @@ review:
 #     - analyze
 #     - review
 
+variables:
+    XBT_AI_IMAGE: xibitdigital/xbt-ai-gitlab-plugin:v.1.2.1
 
-## ============ AI analysis ============
+## ========== AI analysis ==========
 # Job for analyzing potential issues in previous pipeline steps.
 # This job runs in the 'analyze' stage and is configured to run manually on non-protected branches
 # and on both commit branches or merge requests.
 
 .ai_analyze_failures:
     stage: analyze
-    image: xibitdigital/xbt-ai-gitlab-plugin:v.1.2.1
+    image: ${XBT_AI_IMAGE}
     variables:
         ACTION: analysis
         STEPS_TO_ANALYZE: step_1,step_2,step_3
     script:
-        - echo "AI > analyze possible issue on the ${CI_PIPELINE_PREVIOUS_JOB_STEP_NAME} step"
+        - echo "AI > analyze possible issue on the ${STEPS_TO_ANALYZE} steps"
     rules:
         - if: $CI_COMMIT_REF_PROTECTED == "false" && ($CI_COMMIT_BRANCH || $CI_PIPELINE_SOURCE == "merge_request_event")
           when: manual
@@ -121,13 +123,12 @@ review:
 #         - # Add other commands as needed
 
 
-
-## ============ AI MR review ============
+## ========== AI MR review ==========
 # Job for performing automated code reviews during merge requests.
 # This job runs in the 'review' stage and is configured to run manually when a merge request event is detected.
 .ai_merge_request_review:
     stage: review
-    image: xibitdigital/xbt-ai-gitlab-plugin:v.1.2.1
+    image: ${XBT_AI_IMAGE}
     variables:
         ACTION: review
         CREATE_NOTE: false

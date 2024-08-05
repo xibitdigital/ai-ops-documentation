@@ -88,6 +88,7 @@ review:
 #
 # stages:
 #     - analyze
+#     - feedback # beta
 #     - review
 
 variables:
@@ -122,9 +123,13 @@ variables:
 #         - # Add other commands as needed
 
 
-## ========== AI analysis (BETA)==========
-# Job for analyzing potential issues in previous pipeline steps.
-# This job runs in the 'analyze' stage and is configured to run manually on non-protected branches
+## ========== AI changes feedback (BETA)==========
+# Job for analyzing and giving feedback on current changes.
+# This jobs will give a feedback on:
+# - code quality and best practices
+# - potential vulnerabilities
+# - refactoring opportunities
+# This job runs in the 'feedback' stage and is configured to run manually on non-protected branches
 # and on both commit branches or merge requests.
 
 .ai_analyze_changes:

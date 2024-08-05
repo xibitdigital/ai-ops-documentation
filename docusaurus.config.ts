@@ -8,8 +8,8 @@ const projectName = "ai-ops-documentation";
 // const fs = require('fs');
 // const path = require('path');
 // const cnamePath = path.join(__dirname, 'static', 'CNAME');
-// const customDomain = fs.existsSync(cnamePath) 
-//   ? fs.readFileSync(cnamePath, 'utf8').trim() 
+// const customDomain = fs.existsSync(cnamePath)
+//   ? fs.readFileSync(cnamePath, 'utf8').trim()
 //   : null;
 const customDomain = true
 
@@ -77,5 +77,3 @@ const config: Config = {
 };
 
 export default config;
-
-

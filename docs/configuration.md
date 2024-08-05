@@ -9,7 +9,7 @@ To configure GitOps AI, set the following environment variables in your GitLab C
 
 - **API_KEY:** The authentication key for the API.
 - **API_URL (Optional):** Set this variable only if you are subscribed to beta features, contact support.
-- **ACTION:** Specifies the operation to perform (either `review` or `analysis`).
+- **ACTION:** Specifies the operation to perform (either `review`, `analysis` or `feedback`(beta)).
 - **STEPS_TO_ANALYZE:** The name of the previous job steps in the pipeline, to define more than one define them comma separated (see template below).
 - **CREATE_NOTE (Optional):** If set to `true`, the service adds the AI-generated feedback as a note in the merge request (default is `false`).
 

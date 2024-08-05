@@ -81,7 +81,6 @@ review:
 ```yaml
 # .gitlab/xbt-ai.gitlab-ci.yml
 ---
----
 # This is a sample GitLab CI/CD configuration template for integrating with the xbt-ai-gitlab plugin.
 # It includes two jobs, 'ai_analyze_failures' and 'ai_merge_request_review', which run in the 'analyze' and 'review' stages, respectively.
 # These stages must be defined in the main .gitlab-ci.yml file under the 'stages' section to ensure they are recognized by the pipeline.
@@ -92,9 +91,9 @@ review:
 #     - review
 
 variables:
-    XBT_AI_IMAGE: xibitdigital/xbt-ai-gitlab-plugin:v.1.2.1
+    XBT_AI_IMAGE: xibitdigital/xbt-ai-gitlab-plugin:v.1.2.2
 
-## ========== AI analysis ==========
+## ========== AI Pipelines analysis ==========
 # Job for analyzing potential issues in previous pipeline steps.
 # This job runs in the 'analyze' stage and is configured to run manually on non-protected branches
 # and on both commit branches or merge requests.
@@ -121,6 +120,23 @@ variables:
 #         - echo "<GIT_AI_OPS> Starting analysis for possible errors."
 #         - make init
 #         - # Add other commands as needed
+
+
+## ========== AI analysis (BETA)==========
+# Job for analyzing potential issues in previous pipeline steps.
+# This job runs in the 'analyze' stage and is configured to run manually on non-protected branches
+# and on both commit branches or merge requests.
+
+.ai_analyze_changes:
+    stage: analyze
+    image: ${XBT_AI_IMAGE}
+    variables:
+        ACTION: feedback
+    script:
+        - echo "AI > analyze changes with best practices"
+    rules:
+        - if: $CI_COMMIT_REF_PROTECTED == "false" && ($CI_COMMIT_BRANCH || $CI_PIPELINE_SOURCE == "merge_request_event")
+          when: manual
 
 
 ## ========== AI MR review ==========

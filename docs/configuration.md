@@ -31,6 +31,7 @@ Add stages to run AI services.
 ```yaml
 stages:
     - analyze
+    - feedback # beta
     - review
 ```
 

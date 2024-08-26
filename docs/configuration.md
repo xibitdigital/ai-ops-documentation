@@ -66,6 +66,44 @@ The following example illustrates configuring a job in a different stage, such a
 #         - # Add other commands as needed
 ```
 
+### Code Feedback
+
+The Code Feedback job leverages GitOps AI to provide detailed insights and suggestions regarding code quality, best practices, potential vulnerabilities, and opportunities for refactoring.
+
+When the language Focus is set, ex:
+
+```yaml
+analyze_changes:
+    extends: .ai_analyze_changes
+    variables:
+        LANGUAGE_FOCUS: Python
+```
+
+The feedback analysis becomes more targeted and thorough. This deeper analysis allows GitOps AI to tailor its recommendations to the specific characteristics and idioms of the selected programming languages, resulting in more precise and actionable feedback. For instance, if the focus is set on Python, the AI can provide insights related to Pythonic code style, efficient use of built-in functions, and common security pitfalls in Python scripts. Similarly, focusing on JavaScript can lead to recommendations about modern JavaScript features, asynchronous programming best practices, and common client-side security concerns.
+
+This level of specificity is made possible by the job's ability to recognize and analyze files based on their extensions. Only files with extensions matching the supported languages are considered, ensuring that the feedback is relevant and useful. Supported languages for this deeper analysis include:
+
+- Python
+- C
+- C++
+- Java
+- JavaScript
+- TypeScript
+- HTML
+- CSS
+- Ruby
+- PHP
+- Swift
+- Go
+- Kotlin
+- Rust
+- Terraform
+- Terragrunt
+
+These languages are carefully chosen to cover a broad range of application types and development scenarios, from web development and scripting to infrastructure as code and compiled applications.
+
+By integrating the Code Feedback job into the CI/CD pipeline, teams can continuously monitor code quality and receive proactive recommendations, helping to catch issues early in the development cycle. This continuous feedback loop not only reduces the number of bugs and vulnerabilities but also promotes a culture of clean, efficient, and maintainable code across the development team.
+
 ### Code Review
 
 This job automates the code review process using GitOps AI and can add review notes to the merge request.

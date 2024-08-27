@@ -31,7 +31,7 @@ Add stages to run AI services.
 ```yaml
 stages:
     - analyze
-    - feedback # beta
+    - feedback
     - review
 ```
 
@@ -42,7 +42,7 @@ include:
    - .gitlab/xbt-ai.gitlab-ci.yml
 ```
 
-#### Code Analysis
+### Code Analysis
 
 This job uses GitOps AI to analyze potential issues in the deployment process. It is manually triggered for non-protected branches and both commit branches or merge requests.
 
@@ -53,17 +53,19 @@ analyze_failures:
         STEPS_TO_ANALYZE: dev_plan,dev_deploy
 ```
 
-### Example of a Different Stage Job
-
-The following example illustrates configuring a job in a different stage, such as plan. A descriptive tag in the script output, `<GIT_AI_OPS>`, helps the analysis step by marking specific points in the pipeline output.
+The following example illustrates configuring a the code error analysis pipeline for the `dev_plan` step.
+A descriptive tag in the script output, `echo <GIT_AI_OPS>`,  must be added before running the scripts you require.
 
 ```yaml
-# plan:
-#     stage: plan
-#     script:
-#         - echo "<GIT_AI_OPS> Starting the planning stage."
-#         - make init
-#         - # Add other commands as needed
+....
+
+dev_plan:
+    stage: plan
+    script:
+        - echo "<GIT_AI_OPS> Starting the planning stage." # NOTE Add this before any other commands
+        - # Add other commands as needed
+        - .....
+
 ```
 
 ### Code Feedback
@@ -115,7 +117,9 @@ review:
         CREATE_NOTE: true
 ```
 
-### Full GitLab Sample Template for Integration
+### XBT-AI Gitlab Template
+
+This isa configuration template that you can paste an utilize in your pipeline to enable the AI service
 
 ```yaml
 # .gitlab/xbt-ai.gitlab-ci.yml
